@@ -55,7 +55,7 @@ app.post('/signin', (req, res) => {
 	if(email === database.users[0].email) {
 		bcrypt.compare(password, database.users[0].password, function(err, result) {
 		    if(result === true) {
-		    	res.json('success');
+		    	res.json(database.users[0]);
 		    } else {
 				res.status(400).json('error logging in');
 			}
